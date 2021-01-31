@@ -218,6 +218,8 @@ public class MainActivity extends AppCompatActivity {
         Button reset = (Button) findViewById(R.id.reset);
         reset.setEnabled(false);
         reset.setText("Reset");
+        Button button = (Button) findViewById(R.id.dice);
+        button.setEnabled(true);
         TextView display = (TextView) findViewById(R.id.display);
         TextView dicenum = (TextView) findViewById(R.id.diceNum);
         dicenum.setText("Let's Go!");
