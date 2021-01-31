@@ -1,6 +1,7 @@
 package com.example.snakesnladders;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.gridlayout.widget.GridLayout;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -42,7 +43,11 @@ public class MainActivity extends AppCompatActivity {
             TextView diceNum = (TextView) findViewById(R.id.diceNum);
             Random r = new Random();
             int number = r.nextInt(6) + 1;
-            diceNum.setText("It's " + number + " on the die!");
+            if (number == 6) {
+                diceNum.setText("It's " + number + " on the die! - Play Again!");
+            }else{
+                diceNum.setText("It's " + number + " on the die!");
+            }
             if ((positions[p - 1] == 0 && (number == 1 || number == 6)) || positions[p - 1] != 0) {
                 myid1 = ("coin" + positions[p - 1]);
                 positions[p - 1] += number;
@@ -194,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 Button button = (Button) findViewById(R.id.dice);
                 button.setEnabled(false);
+                reset.setText("Play Again");
             }
         //}
     }
@@ -211,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
         }
         Button reset = (Button) findViewById(R.id.reset);
         reset.setEnabled(false);
+        reset.setText("Reset");
         TextView display = (TextView) findViewById(R.id.display);
         TextView dicenum = (TextView) findViewById(R.id.diceNum);
         dicenum.setText("Let's Go!");
@@ -220,14 +227,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void menuCall(View view){
-        LinearLayout bg = (LinearLayout) findViewById(R.id.bg);
+        LinearLayout bg = (LinearLayout) findViewById(R.id.linearLayout);
+        GridLayout grid = (GridLayout) findViewById(R.id.gridLayout);
+        grid.animate().alpha(0f).setDuration(500);
         bg.animate().alpha(0f).setDuration(500);
         LinearLayout menu = (LinearLayout) findViewById(R.id.menu);
         menu.animate().translationYBy(2000f).setDuration(1000);
     }
 
     public void menuClose(View view){
-        LinearLayout bg = (LinearLayout) findViewById(R.id.bg);
+        LinearLayout bg = (LinearLayout) findViewById(R.id.linearLayout);
+        GridLayout grid = (GridLayout) findViewById(R.id.gridLayout);
+        grid.animate().alpha(1f).setDuration(1000);
         bg.animate().alpha(1f).setDuration(1000);
         LinearLayout menu = (LinearLayout) findViewById(R.id.menu);
         menu.animate().translationYBy(-2000f).setDuration(500);
@@ -254,7 +265,9 @@ public class MainActivity extends AppCompatActivity {
         dicenum.setText("Let's Go!");
         ImageView currentCoin = (ImageView) findViewById(R.id.imageView);
         currentCoin.setImageResource(R.drawable.p1);
-        LinearLayout bg = (LinearLayout) findViewById(R.id.bg);
+        LinearLayout bg = (LinearLayout) findViewById(R.id.linearLayout);
+        GridLayout grid = (GridLayout) findViewById(R.id.gridLayout);
+        grid.animate().alpha(1f).setDuration(1000);
         bg.animate().alpha(1f).setDuration(1000);
         LinearLayout menu = (LinearLayout) findViewById(R.id.menu);
         menu.animate().translationYBy(-2000f).setDuration(500);
@@ -283,7 +296,9 @@ public class MainActivity extends AppCompatActivity {
         dicenum.setText("Let's Go!");
         ImageView currentCoin = (ImageView) findViewById(R.id.imageView);
         currentCoin.setImageResource(R.drawable.p1);
-        LinearLayout bg = (LinearLayout) findViewById(R.id.bg);
+        LinearLayout bg = (LinearLayout) findViewById(R.id.linearLayout);
+        GridLayout grid = (GridLayout) findViewById(R.id.gridLayout);
+        grid.animate().alpha(1f).setDuration(1000);
         bg.animate().alpha(1f).setDuration(1000);
         LinearLayout menu = (LinearLayout) findViewById(R.id.menu);
         menu.animate().translationYBy(-2000f).setDuration(500);
@@ -311,7 +326,9 @@ public class MainActivity extends AppCompatActivity {
         dicenum.setText("Let's Go!");
         ImageView currentCoin = (ImageView) findViewById(R.id.imageView);
         currentCoin.setImageResource(R.drawable.p1);
-        LinearLayout bg = (LinearLayout) findViewById(R.id.bg);
+        LinearLayout bg = (LinearLayout) findViewById(R.id.linearLayout);
+        GridLayout grid = (GridLayout) findViewById(R.id.gridLayout);
+        grid.animate().alpha(1f).setDuration(1000);
         bg.animate().alpha(1f).setDuration(1000);
         LinearLayout menu = (LinearLayout) findViewById(R.id.menu);
         menu.animate().translationYBy(-2000f).setDuration(500);
